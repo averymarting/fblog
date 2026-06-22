@@ -1,92 +1,29 @@
-[
-  {
-    "name": "datr",
-    "value": "mrmZaas5RmmLenOTa8pgcl_5",
-    "domain": ".facebook.com",
-    "path": "/",
-    "secure": true,
-    "httpOnly": true,
-    "sameSite": "None",
-    "expires": 1806242203
-  },
-  {
-    "name": "sb",
-    "value": "mrmZaYebnvdu9btXlBwDDMZ3",
-    "domain": ".facebook.com",
-    "path": "/",
-    "secure": true,
-    "httpOnly": true,
-    "sameSite": "None",
-    "expires": 1806242299
-  },
-  {
-    "name": "ps_l",
-    "value": "1",
-    "domain": ".facebook.com",
-    "path": "/",
-    "secure": true,
-    "httpOnly": true,
-    "sameSite": "None",
-    "expires": 1806242246
-  },
-  {
-    "name": "ps_n",
-    "value": "1",
-    "domain": ".facebook.com",
-    "path": "/",
-    "secure": true,
-    "httpOnly": true,
-    "sameSite": "None",
-    "expires": 1806242246
-  },
-  {
-    "name": "c_user",
-    "value": "61579801236212",
-    "domain": ".facebook.com",
-    "path": "/",
-    "secure": true,
-    "httpOnly": true,
-    "sameSite": "None",
-    "expires": 1813650004
-  },
-  {
-    "name": "i_user",
-    "value": "61588365148401",
-    "domain": ".facebook.com",
-    "path": "/",
-    "secure": true,
-    "httpOnly": true,
-    "sameSite": "None",
-    "expires": 1813344335
-  },
-  {
-    "name": "wd",
-    "value": "1358x645",
-    "domain": ".facebook.com",
-    "path": "/",
-    "secure": true,
-    "httpOnly": true,
-    "sameSite": "None",
-    "expires": 1782718833
-  },
-  {
-    "name": "xs",
-    "value": "29%3AYnUTF84atF7N-A%3A2%3A1771682284%3A-1%3A-1%3A%3AAcxVS9r6zsxz2eC3Gu2cIQYtHX56RAsd_FYa7HPRoNQ",
-    "domain": ".facebook.com",
-    "path": "/",
-    "secure": true,
-    "httpOnly": true,
-    "sameSite": "None",
-    "expires": 1813650004
-  },
-  {
-    "name": "fr",
-    "value": "1XSGeiCURaj8lhFBX..BqOObT..AAA.0.0.BqOObt.AWfcOqdmvLhm94_qVolxykTu3Tk",
-    "domain": ".facebook.com",
-    "path": "/",
-    "secure": true,
-    "httpOnly": true,
-    "sameSite": "None",
-    "expires": 1789890030
-  }
-]
+name: Post to Facebook
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'     # every 30 minutes
+  workflow_dispatch:
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests google-api-python-client google-auth google-auth-oauthlib
+      
+      - name: Run Facebook Poster
+        env:
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          UPLOAD_FOLDER_ID: ${{ secrets.UPLOAD_FOLDER_ID }}
+          PROCESSED_FOLDER_ID: ${{ secrets.PROCESSED_FOLDER_ID }}
+          # Add any other secrets you need
+        run: python main.py
