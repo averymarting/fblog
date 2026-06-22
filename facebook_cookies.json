@@ -5,7 +5,7 @@
     "domain": ".facebook.com",
     "path": "/",
     "secure": true,
-    "httpOnly": false,
+    "httpOnly": true,
     "sameSite": "None",
     "expires": 1806242203
   },
@@ -15,7 +15,7 @@
     "domain": ".facebook.com",
     "path": "/",
     "secure": true,
-    "httpOnly": false,
+    "httpOnly": true,
     "sameSite": "None",
     "expires": 1806242299
   },
@@ -25,7 +25,7 @@
     "domain": ".facebook.com",
     "path": "/",
     "secure": true,
-    "httpOnly": false,
+    "httpOnly": true,
     "sameSite": "None",
     "expires": 1806242246
   },
@@ -35,7 +35,7 @@
     "domain": ".facebook.com",
     "path": "/",
     "secure": true,
-    "httpOnly": false,
+    "httpOnly": true,
     "sameSite": "None",
     "expires": 1806242246
   },
@@ -45,7 +45,7 @@
     "domain": ".facebook.com",
     "path": "/",
     "secure": true,
-    "httpOnly": false,
+    "httpOnly": true,
     "sameSite": "None",
     "expires": 1813650004
   },
@@ -55,7 +55,7 @@
     "domain": ".facebook.com",
     "path": "/",
     "secure": true,
-    "httpOnly": false,
+    "httpOnly": true,
     "sameSite": "None",
     "expires": 1813344335
   },
@@ -65,7 +65,7 @@
     "domain": ".facebook.com",
     "path": "/",
     "secure": true,
-    "httpOnly": false,
+    "httpOnly": true,
     "sameSite": "None",
     "expires": 1782718833
   },
@@ -75,7 +75,7 @@
     "domain": ".facebook.com",
     "path": "/",
     "secure": true,
-    "httpOnly": false,
+    "httpOnly": true,
     "sameSite": "None",
     "expires": 1813650004
   },
@@ -85,7 +85,7 @@
     "domain": ".facebook.com",
     "path": "/",
     "secure": true,
-    "httpOnly": false,
+    "httpOnly": true,
     "sameSite": "None",
     "expires": 1789890030
   }
